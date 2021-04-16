@@ -1,7 +1,7 @@
 <template>
   <div id="container">
     <nuxt-link
-      to="/register"
+      to="/step1"
       class="bg-white-500 transition p-5 px-10 rounded-md text-red text-lg disabled:bg-gray-500 block text-center btn1"
       disabled="true"
     >

@@ -1,8 +1,8 @@
 <template>
-  <div id="container3">
+  <div id="container2">
     <nuxt-link
       to="/step2"
-      class="bg-blue-500 transition p-5 px-10 rounded-md text-white text-lg disabled:bg-gray-500 block text-center btn3"
+      class="bg-blue-500 transition p-5 px-10 rounded-md text-white text-lg disabled:bg-gray-500 block text-center btn2"
       disabled="true"
     >
       Ça me va
@@ -23,13 +23,13 @@ export default {
 </script>
 
 <style>
-#container3 {
+#container2 {
   height: 1700px;
   background: url(../static/background-step1.png) no-repeat top center;
   background-size: 100%;
 }
 
-.btn3 {
+.btn2 {
   position: absolute;
   top: 1591px;
   left: 400px;
