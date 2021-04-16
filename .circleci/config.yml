@@ -25,7 +25,7 @@ jobs:
           name: Generate package
           command: |
             mkdir -p /tmp/ha-hackathon-2021
-            cp -r dist /tmp/ha-hackathon-2021/
+            cp -r dist/ /tmp/ha-hackathon-2021/
             cd /tmp
             tar czvf ha-hackathon-2021.tar.gz ha-hackathon-2021
       - run:
@@ -37,4 +37,4 @@ jobs:
           name: Copy and extract over ssh
           command: |
             scp -P $test_port /tmp/ha-hackathon-2021.tar.gz $test_user@$test_host:$test_path
-            ssh -p $test_port $test_user@$test_host "cd /var/www && tar xzvf ha-hackathon-2021.tar.gz && rm ha-hackathon-2021.tar.gz && sudo cp -r ha-hackathon-2021/*"
+            ssh -p $test_port $test_user@$test_host "cd /var/www && tar xzvf ha-hackathon-2021.tar.gz && rm ha-hackathon-2021.tar.gz"
