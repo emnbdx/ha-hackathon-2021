@@ -7,7 +7,7 @@ workflows:
     jobs:
       - build:
           context:
-            - prod
+            - test
 
 jobs:
   build:
