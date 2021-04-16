@@ -54,3 +54,9 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+#__layout {
+  background: none;
+}
+</style>
