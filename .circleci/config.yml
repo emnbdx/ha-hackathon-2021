@@ -1,0 +1,40 @@
+# Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
+version: 2.1
+
+workflows:
+  version: 2
+  pack-and-deploy:
+    jobs:
+      - build:
+          context:
+            - test
+
+jobs:
+  build:
+    docker:
+      - image: cimg/node:15.14.0
+    steps:
+      - checkout  
+      - run: 
+          name: Update yarn
+          command: curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
+      - run: 
+          name: Restore yarn package
+          command: yarn install && yarn build && yarn generate
+      - run:
+          name: Generate package
+          command: |
+            mkdir -p /tmp/ha-hackathon-2021
+            cp -r dist/* /tmp/ha-hackathon-2021/
+            cd /tmp
+            tar czvf ha-hackathon-2021.tar.gz ha-hackathon-2021
+      - run:
+          name: Add fingerprint to known_hosts
+          command: |
+            echo '|1|zSEu4XmGuMHD9KNkf4ZpDWbrmL4=|SClT5xcyqkzeXVooeMqQ2lm3My4= ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBGjxZzFjrQ16ZHlJhRMNxXlyWmwBWg1bdNj/7qnf2c93iuSmuIs6LrgbjV6i44IfhyrrKWXswwlz5VOUJdqjhLw=' >> ~/.ssh/known_hosts
+            echo '|1|TgdHrfqszUMI1asXlbKDdWVM0xc=|QlAD1ywJ3sRmGGIxJY3yS+c73jg= ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBGjxZzFjrQ16ZHlJhRMNxXlyWmwBWg1bdNj/7qnf2c93iuSmuIs6LrgbjV6i44IfhyrrKWXswwlz5VOUJdqjhLw=' >> ~/.ssh/known_hosts
+      - run:
+          name: Copy and extract over ssh
+          command: |
+            scp -P $test_port /tmp/ha-hackathon-2021.tar.gz $test_user@$test_host:$test_path
+            ssh -p $test_port $test_user@$test_host "cd /var/www && tar xzvf ha-hackathon-2021.tar.gz && rm ha-hackathon-2021.tar.gz"
