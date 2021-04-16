@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <h1 class="text-4xl text-center mb-6">Bienvenue sur IncubAsso !</h1>
+    <h1 class="text-4xl text-center mb-6">Bienvenue sur ton campus !</h1>
     <ul class="space-y-2 text-lg mb-6">
       <li>
         <label class="flex items-center">

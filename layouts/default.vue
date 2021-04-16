@@ -3,7 +3,7 @@
     <nav class="px-4 py-6 bg-blue-600">
       <div class="max-w-xl mx-auto">
         <div class="text-2xl uppercase tracking-wider font-bold text-white">
-          IncubAsso
+          Le campus
         </div>
       </div>
     </nav>
