@@ -24,14 +24,14 @@ export default {
 
 <style>
 #container {
-  height: 3410px;
+  height: 3674px;
   background: url(../static/background.png) no-repeat top center;
   background-size: 100%;
 }
 
 .btn1 {
   position: absolute;
-  top: 556px;
+  top: 569px;
   left: 708px;
   background: white;
   color: #fc6867;

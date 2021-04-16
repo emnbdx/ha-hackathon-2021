@@ -24,7 +24,7 @@ export default {
 
 <style>
 #container2 {
-  height: 1700px;
+  height: 1747px;
   background: url(../static/background-step1.png) no-repeat top center;
   background-size: 100%;
 }
