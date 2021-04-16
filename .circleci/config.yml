@@ -25,7 +25,7 @@ jobs:
           name: Generate package
           command: |
             mkdir -p /tmp/ha-hackathon-2021
-            cp -r dist/ /tmp/ha-hackathon-2021/
+            cp -r dist/* /tmp/ha-hackathon-2021/
             cd /tmp
             tar czvf ha-hackathon-2021.tar.gz ha-hackathon-2021
       - run:
