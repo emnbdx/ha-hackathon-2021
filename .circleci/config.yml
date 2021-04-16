@@ -12,9 +12,9 @@ workflows:
 jobs:
   build:
     docker:
-      - image: circleci/node@3.0.0
+      - image: cimg/node:15.14.0
     steps:
-      - checkout
+      - checkout  
       - run: 
           name: Update yarn
           command: curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
