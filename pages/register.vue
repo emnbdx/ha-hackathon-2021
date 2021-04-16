@@ -1,44 +1,11 @@
 <template>
-  <div class="">
-    <h1 class="text-4xl text-center mb-6">Bienvenue sur ton campus !</h1>
-    <ul class="space-y-2 text-lg mb-6">
-      <li>
-        <label class="flex items-center">
-          <input
-            v-model="isAtLeastTwo"
-            type="checkbox"
-            class="form-checkbox h-6 w-6 mr-2"
-          />
-          Vous êtes au moins 2 ?
-        </label>
-      </li>
-      <li>
-        <label class="flex items-center">
-          <input
-            v-model="isProjectDefined"
-            type="checkbox"
-            class="form-checkbox h-6 w-6 mr-2"
-          />
-          Vous avez un projet stylé ?
-        </label>
-      </li>
-      <li>
-        <label class="flex items-center">
-          <input
-            v-model="isWhishesToChangeTheWorld"
-            type="checkbox"
-            class="form-checkbox h-6 w-6 mr-2"
-          />
-          Vous avez envie de changer votre monde ?
-        </label>
-      </li>
-    </ul>
+  <div id="container2">
     <nuxt-link
       to="/step1"
-      class="bg-blue-500 hover:bg-blue-600 transition p-5 px-10 rounded-md text-white text-lg disabled:bg-gray-500 block text-center"
+      class="bg-red-500 transition p-5 px-10 rounded-md text-white text-lg disabled:bg-gray-500 block text-center btn2"
       disabled="true"
     >
-      Ok, let's go
+      Cool
     </nuxt-link>
   </div>
 </template>
@@ -55,8 +22,19 @@ export default {
 }
 </script>
 
-<style scoped>
-#__layout {
-  background: none;
+<style>
+#container2 {
+  height: 900px;
+  background: url(../static/background-register.png) no-repeat top center;
+  background-size: 100%;
+}
+
+.btn2 {
+  position: absolute;
+  top: 656px;
+  left: 857px;
+  background: #fc6867;
+  color: #ffffff;
+  padding: 0 2.5rem;
 }
 </style>

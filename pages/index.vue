@@ -2,7 +2,7 @@
   <div id="container">
     <nuxt-link
       to="/register"
-      class="bg-white-500 hover:bg-white-600 transition p-5 px-10 rounded-md text-red text-lg disabled:bg-gray-500 block text-center btn1"
+      class="bg-white-500 transition p-5 px-10 rounded-md text-red text-lg disabled:bg-gray-500 block text-center btn1"
       disabled="true"
     >
       C'est parti !
