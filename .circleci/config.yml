@@ -15,17 +15,11 @@ jobs:
       - image: cimg/node:15.14.0
     steps:
       - checkout  
-      - run: 
-          name: Update yarn
-          command: curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
-      - run: 
-          name: Restore yarn package
-          command: yarn install && yarn build && yarn generate
       - run:
           name: Generate package
           command: |
             mkdir -p /tmp/ha-hackathon-2021
-            cp -r dist/* /tmp/ha-hackathon-2021/
+            cp -r * /tmp/ha-hackathon-2021/
             cd /tmp
             tar czvf ha-hackathon-2021.tar.gz ha-hackathon-2021
       - run:
@@ -37,4 +31,4 @@ jobs:
           name: Copy and extract over ssh
           command: |
             scp -P $test_port /tmp/ha-hackathon-2021.tar.gz $test_user@$test_host:$test_path
-            ssh -p $test_port $test_user@$test_host "cd /var/www && tar xzvf ha-hackathon-2021.tar.gz && rm ha-hackathon-2021.tar.gz"
+            ssh -p $test_port $test_user@$test_host "cd /var/www && tar xzvf ha-hackathon-2021.tar.gz && rm ha-hackathon-2021.tar.gz && cd ha-hackathon-2021 && yarn install && yarn build && yarn generate"
